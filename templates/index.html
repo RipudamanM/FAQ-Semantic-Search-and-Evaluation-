@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semantic FAQ Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Semantic FAQ Search</h2>
+    <form method="post">
+        <input type="text" name="query" placeholder="Enter your question...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <h3>Recent Search: </h3>
+        <p><strong>Q:</strong> {{ result.question }}</p>
+        <p><strong>A:</strong> {{ result.answer }}</p>
+        <p><em>Score: {{ result.score }}</em></p>
+    </div>
+    {% endif %}
+</body>
+</html>
